@@ -1,0 +1,85 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.button {
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 1%;
+  border-radius: 5px;
+}
+.focus-picker-container {
+  justify-content: "center";
+  align-items: "center";
+}
+
+.spacer {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.grid-container {
+  display: block;
+  flex: 1;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 6fr 3fr 2fr;
+  grid-template-rows: 6fr 3fr 2fr;
+  grid-gap: 5px;
+
+}
+.typography{
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.test{
+    height: 250px;
+    width: 1280px;
+}
+.test1{
+  height: 720px;
+  width: 300px;
+}
+.test2{
+  height: 720px;
+  width: 150px;
+  margin-left: 1%;
+}
+.test3{
+  height: 720px;
+  width: 600px;
+  margin-left: 1%;
+}
+.test-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+}
+.test-container2{
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+}
+

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "focals",
+  "info": {
+    "singularName": "focal",
+    "pluralName": "focals",
+    "displayName": "Focal"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "image": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "multiple": false
+    },
+    "focal_x": {
+      "type": "float"
+    },
+    "focal_y": {
+      "type": "float"
+    }
+  }
+}

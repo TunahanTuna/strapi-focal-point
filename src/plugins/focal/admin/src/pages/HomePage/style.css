@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  font-family: sans-serif;
+  text-align: center;
+}
+.container{
+  display: flex;
+}
+.button{
+  text-align: center;
+  justify-content: center;
+}
+

@@ -1,0 +1,32 @@
+{
+  "name": "focal-plugin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.2.2",
+    "@strapi/plugin-users-permissions": "4.2.2",
+    "@strapi/strapi": "4.2.2",
+    "better-sqlite3": "7.4.6",
+    "image-focus": "^1.2.1",
+    "lodash.debounce": "^4.0.8"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "32907eac-7bc6-4649-b62d-3cdb284eb4e5"
+  },
+  "engines": {
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
