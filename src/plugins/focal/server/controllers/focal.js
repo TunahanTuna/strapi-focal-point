@@ -28,4 +28,35 @@ module.exports = {
       ctx.throw(500, error);
     }
   },
+  async update(ctx) {
+    try {
+      const { data } = ctx.request.body;
+
+      const parsedData = JSON.parse(data);
+
+      const entry = await strapi.entityService.update(
+        "plugin::focal.focal",
+        ctx.params.id,
+        {
+          data: {
+            ...parsedData,
+          },
+        }
+      );
+      return entry;
+    } catch (error) {
+      ctx.throw(500, error);
+    }
+  },
+  async delete(ctx) {
+    try {
+      const entry = await strapi.entityService.delete(
+        "plugin::focal.focal",
+        ctx.params.id
+      );
+      return entry;
+    } catch (error) {
+      ctx.throw(500, error);
+    }
+  },
 };

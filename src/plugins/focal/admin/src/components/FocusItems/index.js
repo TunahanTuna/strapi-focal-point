@@ -17,7 +17,9 @@ export const FocusItems = ({ src, setFocus, focus, files }) => {
     await fetch("http://localhost:1337/focal/create", {
       method: "POST",
       body: postData,
-    }).then(alert("success"));
+    })
+      .then((res) => res.json())
+      .then(location.reload());
   };
 
   return (
