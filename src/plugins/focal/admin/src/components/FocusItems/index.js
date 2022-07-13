@@ -5,21 +5,39 @@ import FocusedImage from "../../components/FocusedImage";
 import PropTypes from "prop-types";
 import "./style.css";
 
-export const FocusItems = ({ src, setFocus, focus, files }) => {
+export const FocusItems = ({
+  src,
+  setFocus,
+  focus,
+  files,
+  isUpdate,
+  setIsUpdate,
+  dataId,
+}) => {
   const clickHandler = async () => {
     const postData = new FormData();
     const data = {
       focal_x: focus.x,
       focal_y: focus.y,
     };
-    postData.append("data", JSON.stringify(data));
-    postData.append(`files.file`, files, files.name);
-    await fetch("http://localhost:1337/focal/create", {
-      method: "POST",
-      body: postData,
-    })
-      .then((res) => res.json())
-      .then(location.reload());
+    if (isUpdate) {
+      postData.append("data", JSON.stringify(data));
+      await fetch(`http://localhost:1337/focal/update/${dataId}`, {
+        method: "PUT",
+        body: postData,
+      })
+        .then((res) => res.json())
+        .then(location.reload());
+    } else {
+      postData.append("data", JSON.stringify(data));
+      postData.append(`files.file`, files, files.name);
+      await fetch("http://localhost:1337/focal/create", {
+        method: "POST",
+        body: postData,
+      })
+        .then((res) => res.json())
+        .then(location.reload());
+    }
   };
 
   return (

@@ -30,7 +30,8 @@ const HomePage = () => {
   const [img, setImg] = useState();
   const [files, setFiles] = useState();
   const [tables, setTables] = useState([]);
-  // const table = [];
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [dataId, setDataId] = useState();
   const getData = async () => {
     try {
       await fetch("http://localhost:1337/focal/?populate=*", {
@@ -68,9 +69,20 @@ const HomePage = () => {
             setFocus={setFocus}
             focus={focus}
             files={files}
+            setIsUpdate={setIsUpdate}
+            isUpdate={isUpdate}
+            dataId={dataId}
           />
         ) : tables.length > 0 ? (
-          <StrapiTable datas={tables} setDatas={setTables} func={handleData} />
+          <StrapiTable
+            datas={tables}
+            setDatas={setTables}
+            setImg={setImg}
+            setLoadCheck={setIsDataLoaded}
+            setIsUpdate={setIsUpdate}
+            setDataId={setDataId}
+            func={handleData}
+          />
         ) : (
           <Box padding={8} background="neutral100">
             <EmptyStateLayout
