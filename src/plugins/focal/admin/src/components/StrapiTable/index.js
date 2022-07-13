@@ -18,7 +18,15 @@ import { IconButton, IconButtonGroup } from "@strapi/design-system/IconButton";
 
 import React, { useState } from "react";
 
-export const StrapiTable = ({ datas, func, setDatas }) => {
+export const StrapiTable = ({
+  datas,
+  func,
+  setDatas,
+  setImg,
+  setIsUpdate,
+  setLoadCheck,
+  setDataId,
+}) => {
   const [dataState, setDataState] = useState(datas);
 
   return (
@@ -72,7 +80,12 @@ export const StrapiTable = ({ datas, func, setDatas }) => {
               <Td>
                 <Flex>
                   <IconButton
-                    onClick={() => console.log(dataState)}
+                    onClick={() => {
+                      setLoadCheck(true);
+                      setImg(`http://localhost:1337${data.file.url}`);
+                      setIsUpdate(true);
+                      setDataId(data.id);
+                    }}
                     label="Edit"
                     noBorder
                     icon={<Pencil />}
