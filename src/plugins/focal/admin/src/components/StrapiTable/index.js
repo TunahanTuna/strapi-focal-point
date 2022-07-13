@@ -16,28 +16,14 @@ import { Avatar, AvatarGroup } from "@strapi/design-system/Avatar";
 import { Flex } from "@strapi/design-system/Flex";
 import { IconButton, IconButtonGroup } from "@strapi/design-system/IconButton";
 
-import React from "react";
+import React, { useState } from "react";
 
-export const StrapiTable = ({ datas, func }) => {
-  const ROW_COUNT = 6;
-  const COL_COUNT = 10;
-  const entry = {
-    cover: "https://avatars.githubusercontent.com/u/3874873?v=4",
-    description: "Chez Léon is a human sized Parisian",
-    category: "French cuisine",
-    contact: "Leon Lafrite",
-  };
-  const entries = [];
-
-  for (let i = 0; i < 5; i++) {
-    entries.push({ ...entry, id: i });
-  }
+export const StrapiTable = ({ datas, func, setDatas }) => {
+  const [dataState, setDataState] = useState(datas);
 
   return (
     <Box padding={8} background="neutral100">
       <Table
-        colCount={COL_COUNT}
-        rowCount={ROW_COUNT}
         footer={
           <TFooter icon={<Plus />}>
             <input accept="image/*" type="file" onChange={func} />
@@ -86,14 +72,31 @@ export const StrapiTable = ({ datas, func }) => {
               <Td>
                 <Flex>
                   <IconButton
-                    onClick={() => console.log("edit")}
+                    onClick={() => console.log(dataState)}
                     label="Edit"
                     noBorder
                     icon={<Pencil />}
                   />
                   <Box paddingLeft={1}>
                     <IconButton
-                      onClick={() => console.log("delete")}
+                      onClick={async () => {
+                        await fetch(
+                          `http://localhost:1337/focal/delete/${
+                            data && data.id
+                          }`,
+                          {
+                            method: "DELETE",
+                          }
+                        )
+                          .then((res) => res.json())
+                          .then(
+                            setDatas((current) =>
+                              current.filter((index) => {
+                                return index.id !== data.id;
+                              })
+                            )
+                          );
+                      }}
                       label="Delete"
                       noBorder
                       icon={<Trash />}

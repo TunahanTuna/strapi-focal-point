@@ -70,7 +70,7 @@ const HomePage = () => {
             files={files}
           />
         ) : tables.length > 0 ? (
-          <StrapiTable datas={tables} func={handleData} />
+          <StrapiTable datas={tables} setDatas={setTables} func={handleData} />
         ) : (
           <Box padding={8} background="neutral100">
             <EmptyStateLayout

@@ -17,4 +17,22 @@ module.exports = [
       auth: false,
     },
   },
+  {
+    method: "PUT",
+    path: "/update/:id",
+    handler: "focal.update",
+    config: {
+      policies: [],
+      auth: false,
+    },
+  },
+  {
+    method: "DELETE",
+    path: "/delete/:id",
+    handler: "focal.delete",
+    config: {
+      policies: [],
+      auth: false,
+    },
+  },
 ];
